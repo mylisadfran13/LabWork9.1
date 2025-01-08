@@ -1,0 +1,30 @@
+#1
+class Book:  
+    def __init__(self, title, author, year):  
+        self.title = title  
+        self.author = author  
+        self.year = year  
+  
+    def display_employee(self):  
+        print("название: {}. автор: {}. год выпуска: {}".format(self.title, self.author, self.year))  
+  
+emp1 = Book("война и мир", "лев николаевич толстой", 1869)  
+emp1.display_employee()
+
+
+#2
+class Circle:  
+    def __init__(self, radius):  
+        self.radius = radius  
+  
+    def get_radius(self):
+        print(self.radius)  
+  
+    def set_radius(self, new_radius):  
+        self.radius = new_radius  
+  
+  
+circle1 = Circle(5)  
+circle1.get_radius()  
+circle1.set_radius(17)  
+circle1.get_radius()
