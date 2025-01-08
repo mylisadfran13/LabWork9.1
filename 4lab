@@ -1,0 +1,27 @@
+#1.2 
+import math  
+res = math.sqrt(25) 
+print(res)
+
+#1.2
+import datetime  
+data = datetime.datetime.now()  
+print(data)
+
+#2  
+import my_module  
+result = my_module.par_sum(5, 4)  
+print(result)
+
+#3  
+import mod  
+print(mod.summ.par_sum1(5, 5))  
+print(mod.proizved.par_sum3(5, 6))  
+print(mod.razn.par_sum2(10, 5))
+
+
+#(приводим пример 1 из модулей:
+def par_sum(a, b):  
+    result = a + b  
+    return result
+)
