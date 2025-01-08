@@ -1,0 +1,27 @@
+#1
+with open('example1.txt', 'r', encoding='utf-8') as file:  
+    content = file.read()  
+    print(content)  
+  
+  
+with open('example1.txt', 'r', encoding='utf-8') as file:  
+    for line in file:  
+        print(line)
+
+#2
+mess = input("введите ваш текст: ")  
+with open('your_input.txt', 'w', encoding='utf-8') as file:  
+    file.write(mess)  
+  
+file = open('example1.txt', 'a', encoding='utf-8')  
+file.write('Пишут мне, что ты, тая тревогу, загрустила шибко обо мне..')  
+file.close()
+
+#3  
+try:  
+    f = open("example2.txt", 'r', encoding='utf-8')  
+    alfa = f.readlines()  
+    print(alfa)  
+    f.close()  
+except FileNotFoundError:  
+    print("файл не найден")
