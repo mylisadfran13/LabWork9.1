@@ -1,0 +1,65 @@
+class Employee:  
+    def init(self, name, id):  
+        self.name = name  
+        self.id = id  
+  
+    def get_info1(self):  
+        return f"имя: {self.name}, id: {self.id}"  
+  
+  
+class Manager(Employee):  
+    def init(self, name, id, department=""):  
+        super().init(name, id)  
+        self.department = department  
+  
+    def manage_project(self): 
+        return f"менеджер {self.name} управляет проектом {self.department}"  
+  
+  
+class Technician(Employee):  
+    def init(self, name, id, specialization=""):  
+        super().init(name, id)  
+        self.specialization = specialization  
+  
+    def perform_maintenance(self):
+        return f"техник {self.name} выполняет техническое обслуживание ({self.specialization})"
+  
+  
+class TechManager(Manager, Technician):  
+    def init(self, name, id, department, specialization):  
+        super().init(name=name, id=id)  
+        self.specialization = specialization  
+        self.department = department  
+  
+        self.subordinates = []  
+  
+    def manage_project(self):  
+        return f"технический менеджер {self.name} управляет проектом {self.department}" 
+  
+    def perform_maintenance(self): 
+        return f"технический менеджер {self.name} выполняет техническое обслуживание ({self.specialization})" 
+  
+    def add_employee(self, employee):
+        self.subordinates.append(employee)
+  
+    def get_team_info(self):  
+        print(f"сотрудники технические менеджеры {self.name}:")  
+        for employ in self.subordinates: 
+            print(employ.get_info())  
+  
+  
+employ1 = Employee("челикn", 1)  
+manager1 = Manager("менеджер1", 2, "IT")  
+technician1 = Technician("техник1", 3, "сети")  
+  
+tech_manager = TechManager("челик1", 4, "Разработка", "программное обеспечение")  
+tech_manager.add_employee(employ1)  
+tech_manager.add_employee(technician1)  
+  
+  
+print(employ1.get_info1())  
+print(manager1.manage_project())  
+print(technician1.perform_maintenance())  
+print(tech_manager.manage_project())  
+print(tech_manager.perform_maintenance())  
+tech_manager.get_team_info()
